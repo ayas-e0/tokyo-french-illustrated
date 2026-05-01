@@ -9,9 +9,10 @@
 **Tokyo French Illustrated · 东京法餐图鉴** —— Ayase 的东京法餐 / 日法融合餐厅记录，**反 digital** 风格的印刷物式网站。姊妹项目是 [my-portfolio](https://github.com/ayas-e0/my-portfolio)（个人作品集），两者共用设计语言，不共用代码。
 
 - 原始 PRD: `~/Library/Mobile Documents/iCloud~md~obsidian/Documents/ayase0/raw/东京法餐图鉴网站.md`
-- Repo: TBD（准备推 `ayas-e0/tokyo-french-illustrated`）
-- Deploy: TBD（准备挂 Vercel，子域名或独立域名待定）
-- 版本：`v0.1` 实验
+- Repo: https://github.com/ayas-e0/tokyo-french-illustrated
+- Deploy: Vercel（已部署，自定义域名待定）
+- 姊妹项目：**my-portfolio** · `~/Projects/my-portfolio` · https://ayase0.com — 共享设计系统但独立仓库/独立部署
+- 版本：`v0.1`，已上线并开放 PR 投稿（见 `CONTRIBUTING.md`）
 
 ## 2 · 核心约束（硬）
 
