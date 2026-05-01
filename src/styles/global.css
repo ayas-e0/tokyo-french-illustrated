@@ -1,6 +1,6 @@
 /* ——————————————————————————————————————————— FONTS ——— */
 @import url('https://api.fontshare.com/v2/css?f[]=zodiak@400,400i,500,500i,700,700i&f[]=switzer@200,300,400,500,600,700,800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@400;500;600&family=Noto+Serif+SC:wght@300;400;500;600&display=swap');
 
 /* ——————————————————————————————————————————— TOKENS ——— */
 :root {
@@ -13,12 +13,30 @@
   --line: #1A1A1A;
   --line-soft: rgba(14, 14, 14, 0.14);
 
-  --f-serif: 'Zodiak', 'Noto Serif SC', Georgia, serif;
-  --f-sans: 'Switzer', 'Noto Sans JP', 'Noto Serif SC', system-ui, sans-serif;
+  /* Default chain: SC first. Overridden per lang on body[data-lang] below. */
+  --f-serif: 'Zodiak', 'Noto Serif SC', 'Noto Serif JP', Georgia, serif;
+  --f-sans: 'Switzer', 'Noto Sans SC', 'Noto Sans JP', system-ui, sans-serif;
 
   --edge: clamp(20px, 4vw, 56px);
   --rule: 1px solid var(--line);
   --rule-soft: 1px solid var(--line-soft);
+}
+
+/* ——————————————————————————————————————————— LANG-AWARE FONT STACK ——— */
+/* CJK glyphs differ between Chinese/Japanese variants of Noto. Prioritize
+   the correct script for the active language so simplified Chinese chars
+   don't get rendered by the JP font (and vice-versa). */
+body[data-lang="ja"] {
+  --f-serif: 'Zodiak', 'Noto Serif JP', 'Noto Serif SC', Georgia, serif;
+  --f-sans: 'Switzer', 'Noto Sans JP', 'Noto Sans SC', system-ui, sans-serif;
+}
+body[data-lang="zh"] {
+  --f-serif: 'Zodiak', 'Noto Serif SC', 'Noto Serif JP', Georgia, serif;
+  --f-sans: 'Switzer', 'Noto Sans SC', 'Noto Sans JP', system-ui, sans-serif;
+}
+body[data-lang="en"] {
+  --f-serif: 'Zodiak', Georgia, 'Noto Serif SC', 'Noto Serif JP', serif;
+  --f-sans: 'Switzer', system-ui, 'Noto Sans SC', 'Noto Sans JP', sans-serif;
 }
 
 /* ——————————————————————————————————————————— RESET ——— */
