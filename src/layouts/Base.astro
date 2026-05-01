@@ -1,0 +1,69 @@
+---
+import '../styles/global.css';
+import Masthead from '../components/Masthead.astro';
+import Analytics from '@vercel/analytics/astro';
+import SpeedInsights from '@vercel/speed-insights/astro';
+import { dict } from '../data/i18n';
+
+interface Props { title?: string; description?: string; }
+const {
+  title = 'Tokyo French Illustrated · 东京法餐图鉴',
+  description = 'A personal illustrated almanac of French and Japanese-French bistros in Tokyo.',
+} = Astro.props;
+const dictJSON = JSON.stringify(dict);
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta name="color-scheme" content="light" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+</head>
+<body id="top">
+  <Masthead />
+  <slot />
+  <Analytics />
+  <SpeedInsights />
+
+  <script is:inline define:vars={{ dictJSON }}>
+    (() => {
+      const dict = JSON.parse(dictJSON);
+      function resolve(key, lang) {
+        return key.split('.').reduce((o, k) => (o && o[k] != null) ? o[k] : null, dict[lang]);
+      }
+      function apply(lang) {
+        document.querySelectorAll('[data-i18n]').forEach((el) => {
+          const key = el.getAttribute('data-i18n');
+          const val = resolve(key, lang);
+          if (val != null) el.innerHTML = val;
+        });
+        document.querySelectorAll('[data-i18n-zh], [data-i18n-ja], [data-i18n-en]').forEach((el) => {
+          const v = el.getAttribute('data-i18n-' + lang);
+          if (v != null) el.textContent = v;
+        });
+        document.querySelectorAll('.lang-btn').forEach((b) => {
+          b.classList.toggle('active', b.getAttribute('data-lang') === lang);
+        });
+        document.documentElement.setAttribute('lang', lang === 'zh' ? 'zh-CN' : lang === 'ja' ? 'ja-JP' : 'en');
+        document.body.setAttribute('data-lang', lang);
+        try { localStorage.setItem('lang', lang); } catch {}
+      }
+      window.__setLang = apply;
+      let saved = null;
+      try { saved = localStorage.getItem('lang'); } catch {}
+      const initial = saved || (navigator.language?.startsWith('ja') ? 'ja' : navigator.language?.startsWith('zh') ? 'zh' : 'en');
+      apply(initial);
+
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    })();
+  </script>
+</body>
+</html>

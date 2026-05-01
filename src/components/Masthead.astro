@@ -1,0 +1,84 @@
+---
+---
+<header class="mh">
+  <div class="mh-l">
+    <span class="caps-s" data-i18n="mh.vol">VOL. 01</span>
+    <span class="sep">·</span>
+    <span class="caps-s" data-i18n="mh.season">SPRING MMXXVI · ONGOING</span>
+  </div>
+
+  <a class="mh-brand" href="/">
+    <span class="mh-name serif-i" data-i18n="mh.brand">Tokyo French Illustrated</span>
+  </a>
+
+  <div class="mh-lang" role="tablist" aria-label="Language">
+    <button class="lang-btn" data-lang="en">EN</button>
+    <span class="slash">/</span>
+    <button class="lang-btn" data-lang="ja">JA</button>
+    <span class="slash">/</span>
+    <button class="lang-btn" data-lang="zh">中</button>
+  </div>
+</header>
+
+<style>
+  .mh {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 20px;
+    padding: 16px var(--edge) 14px;
+    background: rgba(242, 239, 232, 0.9);
+    backdrop-filter: blur(6px);
+    border-bottom: var(--rule);
+  }
+  .mh-l { display: flex; align-items: center; gap: 10px; color: var(--ink); }
+  .sep { color: var(--mute); font-weight: 300; }
+
+  .mh-brand {
+    display: flex; align-items: baseline; gap: 8px;
+    justify-self: center;
+    color: var(--ink);
+  }
+  .mh-name {
+    font-family: var(--f-serif);
+    font-style: italic;
+    font-weight: 500;
+    font-size: 18px;
+    letter-spacing: 0.01em;
+  }
+
+  .mh-lang {
+    justify-self: end;
+    display: flex; align-items: center; gap: 4px;
+  }
+  .lang-btn {
+    font-family: var(--f-sans);
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--mute);
+    padding: 2px 4px;
+    transition: color 180ms ease;
+  }
+  .lang-btn:hover { color: var(--ink); }
+  .lang-btn.active { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  .slash { color: var(--dim); font-size: 11px; }
+
+  @media (max-width: 820px) {
+    .mh { grid-template-columns: 1fr auto; gap: 12px; padding: 12px var(--edge); }
+    .mh-l { display: none; }
+    .mh-brand { justify-self: start; }
+  }
+</style>
+
+<script is:inline>
+  (() => {
+    const btns = document.querySelectorAll('.lang-btn');
+    btns.forEach(b => b.addEventListener('click', () => {
+      const l = b.getAttribute('data-lang');
+      if (l && window.__setLang) window.__setLang(l);
+    }));
+  })();
+</script>

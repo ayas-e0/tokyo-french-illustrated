@@ -1,0 +1,17 @@
+{
+  "name": "tokyo-french-illustrated",
+  "type": "module",
+  "version": "0.1.0",
+  "private": false,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1",
+    "@vercel/speed-insights": "^1.0.12",
+    "astro": "^5.1.0"
+  }
+}
