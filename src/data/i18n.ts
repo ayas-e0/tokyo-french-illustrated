@@ -11,7 +11,7 @@ export const dict = {
     intro: {
       title: '东京法餐图鉴',
       sub: 'Tokyo French Illustrated',
-      body: '一份关于东京法式与日法融合餐厅的私人图鉴。没有评分，没有推荐。只有去过的店、写下的字、拍过的图。连载中。',
+      body: '一份关于东京法餐厅的图鉴。不设评分，没有推荐。',
     },
     idx: {
       heading: '目录',
@@ -39,7 +39,7 @@ export const dict = {
     intro: {
       title: '東京フレンチ図鑑',
       sub: 'Tokyo French Illustrated',
-      body: '東京のフレンチと和仏フュージョンをめぐる、私的な図鑑。点数も、おすすめも、ない。訪れた店、書いた言葉、撮った写真、それだけ。連載中。',
+      body: '東京のフレンチ・レストランをめぐる図鑑。採点なし、推薦なし。',
     },
     idx: {
       heading: '目次',
@@ -67,7 +67,7 @@ export const dict = {
     intro: {
       title: 'Tokyo French Illustrated',
       sub: '東京フレンチ図鑑 · 东京法餐图鉴',
-      body: 'A personal illustrated almanac of French and Japanese-French bistros in Tokyo. No ratings. No recommendations. Only the rooms I sat in, the words I wrote, the frames I kept. Ongoing.',
+      body: 'An illustrated almanac of French restaurants in Tokyo. No ratings. No recommendations.',
     },
     idx: {
       heading: 'Contents',
