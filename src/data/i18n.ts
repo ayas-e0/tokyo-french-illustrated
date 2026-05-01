@@ -4,7 +4,7 @@ export const dict = {
   zh: {
     mh: {
       vol: 'VOL. 01',
-      season: '二〇二六年春 · 连载中',
+      season: '二〇二六年春 · 持续更新',
       brand: '东京法餐图鉴',
       brand_sub: 'Tokyo French Illustrated · 東京フレンチ図鑑',
     },
