@@ -71,8 +71,14 @@ npm run build
 - 简洁更新 > 长解释
 - 大改前先描一下方向等 owner 点头
 
-## 8 · 未来要做但现在没做
+## 8 · 投稿流程
 
-- [ ] `CONTRIBUTING.md` + `.github/PULL_REQUEST_TEMPLATE.md`（v0.2 再写，等 v0.1 的内容形式稳定后）
+- 面向非技术用户的投稿指南在 `CONTRIBUTING.md`
+- PR 模板在 `.github/PULL_REQUEST_TEMPLATE.md`
+- **图片命名约定**：投稿者走扁平结构 `{slug}-cover.jpg` / `{slug}-01.jpg`（不用子目录，网页版 GitHub 友好）；早期 meso 条目用的是子目录 `{slug}/cover.jpg`，两种都能 work，schema 不关心。后续条目统一走扁平命名
+
+## 9 · 未来要做但现在没做
+
 - [ ] 独立域名（如 `tfi.cc` / `tokyofrench.cafe` 等），目前用 Vercel 默认子域
 - [ ] 按街区 / 按年份的可选索引（**不要**加过滤器，会破坏反 digital 调性。如果真要做，用"分卷 / Volumes"的形式：Vol.01 2026 春，Vol.02 2026 夏……）
+- [ ] GitHub Action 自动校验 PR：HEIC 拒绝 / 缺三语字段拒绝 / 短评超长提示

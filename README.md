@@ -41,4 +41,4 @@ src/
 
 ## Contributing
 
-The contribution guide + PR template will be added in `v0.2`, once the entry format has settled. For now, entries are curated by the repo owner.
+**PRs welcome.** See **[CONTRIBUTING.md](./CONTRIBUTING.md)** for the full guide — the short version: fork, upload 3–6 photos, write a trilingual frontmatter block, open a PR. No terminal required; everything works from the GitHub web UI.
